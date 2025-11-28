@@ -5,13 +5,9 @@ import axios from 'axios';
 
 const fetchDataFromSeo = async () => {
     try {
-        const response = await axios.get(
+        return await axios.get(
             `${process.env.NEXT_PUBLIC_API_URL}${process.env.NEXT_PUBLIC_END_POINT}${GET_SEO_SETTINGS}`
-        );
-
-        const SEOData = response.data;
-
-        return SEOData;
+        ).then(response => response.data);
     } catch (error) {
         console.error("Error fetching data:", error);
         return null;
@@ -39,7 +35,20 @@ if (process.env.NEXT_PUBLIC_SEO === "true") {
     serverSidePropsFunction = async (context) => {
         const { params } = context;
         const pageName = `/${params.locale}/`;
+
+        const validLocales = ['en', 'fr', 'es']; // Define valid locales
+        if (!validLocales.includes(params.locale)) {
+            return {
+                notFound: true,
+            };
+        }
         const seoData = await fetchDataFromSeo();
+        if (!seoData) {
+            console.error("SEO data is null, redirecting to 404.");
+            return {
+                notFound: true,
+            };
+        }
 
         return {
             props: {

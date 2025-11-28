@@ -34,7 +34,8 @@ export default function Home() {
       try {
         const settings = await fetchWebSettings();
         const defaultLanguage = settings?.data?.default_language;
-        const resolvedDefault = defaultLanguage && typeof defaultLanguage === 'string' ? defaultLanguage : 'en';
+        const validLocales = ['en', 'fr', 'es']; // Add valid locales here
+        const resolvedDefault = defaultLanguage && validLocales.includes(defaultLanguage) ? defaultLanguage : 'en';
         // Ensure we redirect to an existing locale path
         router.replace(`/${resolvedDefault}`);
         dispatch(setDefaultLanguage({ data: resolvedDefault }));
