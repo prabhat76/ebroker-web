@@ -10,14 +10,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "dev-ebroker.thewrteam.in",
-        // port: '',
         pathname: "**",
-        // search: '',
       }
     ],
     unoptimized: true,
   },
-  trailingSlash: true,
   devIndicators: {
     buildActivity: false,
   },
