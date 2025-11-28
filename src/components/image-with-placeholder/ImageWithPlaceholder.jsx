@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-const DefaultLogo = "/logo.png";
+const DefaultLogo = "/logo_ss.jpeg";
 
 const ImageWithPlaceholder = ({
   src,

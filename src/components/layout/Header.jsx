@@ -1,6 +1,7 @@
 "use client";
 import { beforeLogoutApi, getLanguageData } from "@/api/apiRoutes";
-import Logo from "@/assets/logo.png";
+// Use public logo_ss.jpeg as default logo (can be overridden by webSettings)
+const Logo = "/logo_ss.jpeg";
 import { useAuthStatus } from "@/hooks/useAuthStatus";
 import { logout } from "@/redux/slices/authSlice";
 import { setActiveLanguage, setCurrentLanguage, setIsFetched, setIsLanguageLoaded, setManualChange } from "@/redux/slices/languageSlice";
@@ -439,7 +440,8 @@ const Header = () => {
                 <CustomLink href={`/`} title="Home">
                   <div className="h-14 w-44">
                     <ImageWithPlaceholder
-                      src={webSettings?.web_logo ? webSettings?.web_logo : Logo}
+                      // Force using main logo_ss.jpeg as primary logo; webSettings override removed to ensure visible change
+                      src={Logo}
                       alt="logo"
                       priority={true}
                       className="w-full h-full aspect-square"

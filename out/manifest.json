@@ -8,33 +8,33 @@
   "background_color": "#f5f5f4",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "16x16",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "32x32",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "180x180",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ],
@@ -62,9 +62,9 @@
   "iarc_rating_id": "",
   "screenshots": [
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/logo_ss.jpeg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "platform": "wide",
       "label": "eBroker Home Screen"
     }

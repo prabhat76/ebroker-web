@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ImageWithPlaceholder from "../image-with-placeholder/ImageWithPlaceholder";
-import Logo from "@/assets/logo.png";
 import {
   MdClose,
   MdKeyboardArrowRight,
@@ -25,6 +24,9 @@ import LocationSearchWithRadius from "../location-search/LocationSearchWithRadiu
 import { setLocationAction } from "@/redux/slices/locationSlice";
 import toast from "react-hot-toast";
 import { PackageTypes } from "@/utils/checkPackages/packageTypes";
+
+// Use public `logo_ss.jpeg` as the default main logo (can be overridden by webSettings)
+const Logo = "/logo_ss.jpeg";
 
 const MobileMenu = ({
   isMenuOpen,
@@ -146,7 +148,8 @@ const MobileMenu = ({
             <div className="flex items-center justify-between border-b p-3 md:p-4">
               <div className="h-16 w-40 flex items-center">
                 <ImageWithPlaceholder
-                  src={webSettings?.web_logo || Logo}
+                  // Force using main logo_ss.jpeg as primary logo
+                  src={Logo}
                   alt="logo"
                   priority={true}
                   className="h-fit w-fit object-contain"

@@ -981,7 +981,8 @@ export const getDefaultSchemaMarkup = () => {
     url: process.env.NEXT_PUBLIC_WEB_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${process.env.NEXT_PUBLIC_WEB_URL}/favicon.ico`,
+      // Use the public site logo for schema markup
+      url: `${process.env.NEXT_PUBLIC_WEB_URL}/logo_ss.jpeg`,
       width: "512",
       height: "512",
     },

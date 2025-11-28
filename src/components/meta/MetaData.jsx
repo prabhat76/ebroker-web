@@ -15,7 +15,7 @@ const MetaData = ({
   // Open Graph / Facebook - Using same as basic meta for consistency
   ogTitle = title,
   ogDescription = description,
-  ogImage = '/logo.png', // Use site logo as default OG image
+  ogImage = '/logo_ss.jpeg', // Use site logo as default OG image
   ogUrl = `${process.env.NEXT_PUBLIC_WEB_URL}${pageName}`,
   siteName = process.env.NEXT_PUBLIC_META_TITLE,
 
@@ -38,7 +38,7 @@ const MetaData = ({
   // PWA
   manifestUrl = '/manifest.json',
   appleTouchIcon = '/apple-touch-icon.png',
-  favicon = '/favicon.ico',
+  favicon = '/logo_ss.jpeg',
 }) => {
 
   let parsedStructuredData = extractSchemaMarkup(structuredData) || getDefaultSchemaMarkup();

@@ -46,7 +46,8 @@ self.addEventListener("push", function (event) {
 
     const notificationOptions = {
       body: payload.notification?.body,
-      icon: payload.data?.icon || "/favicon.ico",
+      // Prefer using the public site logo as the default notification icon
+      icon: payload.data?.icon || "/logo_ss.jpeg",
       requireInteraction: true,
       data: {
         url: clickAction,

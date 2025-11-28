@@ -13,10 +13,11 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* Use logo_ss.jpeg as the primary favicon & apple touch icon */}
+        <link rel="icon" href="/logo_ss.jpeg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo_ss.jpeg" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo_ss.jpeg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo_ss.jpeg" />
       </Head>
       <body className="!pointer-events-auto antialiased">
         <Main />
