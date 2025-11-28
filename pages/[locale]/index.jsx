@@ -30,34 +30,37 @@ const LocalizedHome = ({ seoData, pageName }) => {
     )
 }
 
-let serverSidePropsFunction = null;
-if (process.env.NEXT_PUBLIC_SEO === "true") {
-    serverSidePropsFunction = async (context) => {
-        const { params } = context;
-        const pageName = `/${params.locale}/`;
+let serverSidePropsFunction = async (context) => {
+    const { params } = context;
+    const pageName = `/${params.locale}/`;
 
-        const validLocales = ['en', 'fr', 'es']; // Define valid locales
-        if (!validLocales.includes(params.locale)) {
-            return {
-                notFound: true,
-            };
-        }
-        const seoData = await fetchDataFromSeo();
-        if (!seoData) {
-            console.error("SEO data is null, redirecting to 404.");
-            return {
-                notFound: true,
-            };
-        }
+    const validLocales = ['en', 'fr', 'es']; // Define valid locales
+    if (!validLocales.includes(params.locale)) {
+        return {
+            notFound: true,
+        };
+    }
 
+    const seoData = await fetchDataFromSeo();
+
+    // If SEO data failed to load, return empty defaults instead of 404
+    if (!seoData) {
+        console.error("SEO data is null; returning empty defaults to avoid 404.");
         return {
             props: {
-                seoData,
+                seoData: { data: [] },
                 pageName,
             },
         };
+    }
+
+    return {
+        props: {
+            seoData,
+            pageName,
+        },
     };
-}
+};
 
 export const getServerSideProps = serverSidePropsFunction;
 
