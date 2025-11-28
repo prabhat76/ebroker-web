@@ -43,6 +43,9 @@ let serverSidePropsFunction = async (context) => {
 
     const seoData = await fetchDataFromSeo();
 
+    // Log the fetched SEO data for debugging
+    console.log("Fetched SEO Data:", seoData);
+
     // If SEO data failed to load, return empty defaults instead of 404
     if (!seoData) {
         console.error("SEO data is null; returning empty defaults to avoid 404.");
