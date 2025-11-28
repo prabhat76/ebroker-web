@@ -15,7 +15,7 @@ const MetaData = ({
   // Open Graph / Facebook - Using same as basic meta for consistency
   ogTitle = title,
   ogDescription = description,
-  ogImage = '/favicon.ico', // Using favicon as default OG image
+  ogImage = '/logo.png', // Use site logo as default OG image
   ogUrl = `${process.env.NEXT_PUBLIC_WEB_URL}${pageName}`,
   siteName = process.env.NEXT_PUBLIC_META_TITLE,
 
@@ -37,7 +37,7 @@ const MetaData = ({
 
   // PWA
   manifestUrl = '/manifest.json',
-  appleTouchIcon = '/favicon.ico',
+  appleTouchIcon = '/apple-touch-icon.png',
   favicon = '/favicon.ico',
 }) => {
 

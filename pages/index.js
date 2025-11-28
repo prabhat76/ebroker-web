@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import MetaData from "@/components/meta/MetaData";
 import { setDefaultLanguage } from "@/redux/slices/languageSlice";
-import FullScreenSpinLoader from "@/components/ui/loaders/FullScreenSpinLoader";
 
 /**
  * Fetches web settings including default language from API
@@ -28,24 +27,21 @@ const fetchWebSettings = async () => {
 export default function Home() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [settingsData, setSettingsData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   // Handle redirection when SEO is disabled (static export)
   useEffect(() => {
     const handleNoSeoRedirect = async () => {
       try {
         const settings = await fetchWebSettings();
-        setSettingsData(settings);
-        const defaultLanguage = settings?.data?.default_language ?? "en";
-        router.replace(`/${defaultLanguage}`);
-        dispatch(setDefaultLanguage({ data: defaultLanguage }));
+        const defaultLanguage = settings?.data?.default_language;
+        const resolvedDefault = defaultLanguage && typeof defaultLanguage === 'string' ? defaultLanguage : 'en';
+        // Ensure we redirect to an existing locale path
+        router.replace(`/${resolvedDefault}`);
+        dispatch(setDefaultLanguage({ data: resolvedDefault }));
       } catch (error) {
         console.error("Error during redirection:", error);
         // Fallback to English if something goes wrong
-        router.replace("/en-new");
-      } finally {
-        setIsLoading(false);
+        router.replace("/en");
       }
     };
 
@@ -60,7 +56,6 @@ export default function Home() {
         keywords={process.env.NEXT_PUBLIC_META_KEYWORD}
         pageName={"/"}
       />
-      <FullScreenSpinLoader />
     </>
   );
 }
